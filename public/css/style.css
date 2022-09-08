@@ -1,0 +1,187 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: Quicksand,sans-serif;
+}
+body{
+    background-image: url('/pexels-hasan-albari-1229861.jpg');
+    background-size: absolute;
+    color: black;
+    background-color: #ed5565;
+    
+}
+.greets{
+    
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    
+}
+.greets h1{
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0;
+
+
+}
+p{ 
+    font-size: 20px;
+    margin: 15px 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+/* input{
+    font-size: 15px ;
+    padding: 15px 10px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    display: flex;
+
+
+} */
+button{
+    font-size: 10px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px  15px;
+    width: 30%;
+    border-radius: 5px;
+    border: 0;
+    background-color:white;
+    border: black;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+
+}
+button:hover{
+    color: blueviolet;
+
+}
+.greetingName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.greetingName input{
+    font-size: 10px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px  20px;
+    margin-right: 5px;
+    width: 40%;
+    border-radius: 5px;
+    border: 0;
+    background-color:white;
+    border: black;
+  
+}
+.Language{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.count{
+    font-size: 50px;
+    margin-left: 4px;
+}
+.buttonGreeting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.clear{
+    margin-left: 5px;
+}
+.error {
+  color: crimson;
+  font-weight: bold;
+}
+nav .nav-list{
+    list-style: none;
+
+}
+nav .nav-list li{
+    display: inline-block;
+}
+nav .nav-list li a{
+    display: inline-block;
+    color:#eee;
+    margin-left: 55px;
+    font-size: 15px;
+    font-weight:600 ;
+    @media screen and (max-width :1000px) {
+    nav .hamb{
+        display: initial;
+    }
+    .click{
+        top: 46px;
+
+    }
+    .click span{
+        position:absolute;
+        margin-top: 12px;
+
+    }
+    .click span:first-child{
+        transform: rotate(-40deg);
+    }
+    .click span:nth-child(2){
+        opacity: 0;
+        margin: 0;
+
+    }
+    .click span:last-child{
+        transform: rotate(40deg);
+        top:0;
+
+    }
+    nav .nav-list{
+        position: absolute;
+        top: 90px;
+        right:-65%;
+        bottom: 0;
+        width: 60%;
+        height: 50%; 
+        background: black;
+        z-index: 2;
+        padding: 6% 9%;
+        transition: .3s right ;
+        border-radius:10px ;
+    }
+    nav .nav-list li{
+        display: block;
+
+    }
+    nav .nav-list li a{
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        font-weight:400 ;
+        margin-left: 0;
+        margin-bottom: 40px; 
+    }
+    nav .nav-list li.btn a{
+        position: absolute;
+        bottom: 0;
+        right: 20%;
+        left: 20%;
+        padding: 7px 15px;
+        font-size: 14px;
+    }
+    nav .nav-list.open{
+        right: 0;
+
+    }

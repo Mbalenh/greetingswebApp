@@ -1,0 +1,12 @@
+<div class="greets">
+     <h1>greeted</h1>
+     <ul>
+        {{#each names}}
+        <li> <a href="/counter/{{username}}">{{username}}</a> </li>
+        {{/each}}
+        {{#unless names}}
+        <p>No one has been greeted</p>
+        {{/unless}}
+     </ul>
+</div>
+ 

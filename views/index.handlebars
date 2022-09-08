@@ -1,0 +1,23 @@
+<div class="greets">
+    <h1>Greeting</h1>
+    <form action="/greeted" class="greeting" method="POST">
+        <p>Enter Your Name</p>
+        <div class="greetingName">
+            <input class="name {{username}}" type="text" name="fullname" placeholder="Full Name">
+            <p><span class="count">{{count}}</span></p>
+        </div>
+        <div class="Language">
+            <input type="radio" name="language" class="radio radioEnglish" value="english"> English
+            <input type="radio" name="language" class="radio radioIsiZulu" value="isizulu"> IsiZulu
+            <input type="radio" name="language" class="radio radioIsiXhosa" value="isixhosa"> IsiXhosa
+        </div>
+        <p><span class="display">{{message}} </span></p>
+        <p><span class="error">{{messages.info}}</span></p>
+        <div class="buttonGreeting">
+            <button class="button-primary greetMeAdd" type="submit" name="button">Greet Me</button>
+        </div>
+    </form>
+    <form action="/clear" class="buttonGreeting" method="post">
+        <button class="button-primary clear" type="submit" name="button">clear</button>
+    </form>
+</div>
