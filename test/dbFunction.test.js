@@ -50,20 +50,20 @@ it('should be able to check if the user has been greeted', async function(){
 
 it('should be able to check how many times a user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
-    	await  dbFunction.greets('mbali')
-    	await  dbFunction.greets('mbali')
-    	await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
     	await  dbFunction.greets('khanya')
-         const  counterUser = await dbFunction.getUserCounter('khanya')
-         console.log(counterUser)
-    	assert.equal(1,counterUser)
+        await dbFunction.getUserCounter('khanya')
+        
+    	assert.equal(1, await dbFunction.getUserCounter('khanya'))
     	
 })
 it('should be able to check how many times all user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
     	await  dbFunction.greets('mbali')
-    	await  dbFunction.greets('mbali')
-    	await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
     	await  dbFunction.greets('khanya')
 
     	assert.equal(2, await dbFunction.getCounter())
