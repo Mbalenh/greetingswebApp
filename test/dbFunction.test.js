@@ -21,6 +21,7 @@ describe('The greeting app', function(){
         // clean the tables before each test run
          await db.none('Delete FROM GreetingNames')
      })
+
     it('should be able to add all greeted users', async function(){
     	const dbFunction = DbFunction(db)
     	await dbFunction.greets('mbali')
@@ -68,8 +69,10 @@ it('should be able to check how many times all user has been greeted', async fun
     	// await  dbFunction.greets('mbali')
     	// await  dbFunction.greets('mbali') 
     	await  dbFunction.greets('khanya')
-
+let counting= await dbFunction.getCounter()
+console.log(counting)
     	assert.equal(2, await dbFunction.getCounter())
     	// assert.equal(1, await dbFunction.getUserCounter('khanya'))
 })
-})
+
+ })
