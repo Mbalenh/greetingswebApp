@@ -13,7 +13,7 @@ if (process.env.NODE_ENV == 'production') {
   }
 }
 
-const db = pgp(config);
+const db = pgp(config)
 
 describe('The greeting app', function(){
 
@@ -43,18 +43,21 @@ it('should be able to check if the user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
     	await  dbFunction.greets('mbali')
     	await  dbFunction.greets('khanya')
+    
 
-    	assert.equal(true, await dbFunction.nameGreeted('mbali'))
+        let names=await dbFunction.nameGreeted('mbali') 
+        console.log(names)
+          	assert.equal(true, await dbFunction.nameGreeted('mbali'))
     	assert.equal(false, await dbFunction.nameGreeted('kay'))
 })
 
 it('should be able to check how many times a user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
-    	// await  dbFunction.greets('mbali')
-    	// await  dbFunction.greets('mbali')
-    	// await  dbFunction.greets('mbali')
+    	await  dbFunction.greets('mbali')
+    	await  dbFunction.greets('mbali')
+    	await  dbFunction.greets('mbali')
     	await  dbFunction.greets('khanya')
-        await dbFunction.getUserCounter('khanya')
+        // await dbFunction.getUserCounter('khanya')
         
     	assert.equal(1, await dbFunction.getUserCounter('khanya'))
     	
@@ -63,7 +66,7 @@ it('should be able to check how many times all user has been greeted', async fun
     	const dbFunction = DbFunction(db)
     	await  dbFunction.greets('mbali')
     	// await  dbFunction.greets('mbali')
-    	// await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali') 
     	await  dbFunction.greets('khanya')
 
     	assert.equal(2, await dbFunction.getCounter())

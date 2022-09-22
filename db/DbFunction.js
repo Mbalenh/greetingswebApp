@@ -6,7 +6,7 @@ const DbFunction = (db) =>{
 			 await db.none('INSERT INTO GreetingNames (username, counter) VALUES ($1,$2);', [name,1])
 		}
 		else {
-			let counter_net = await db.oneOrNone('SELECT counter FROM GreetingNames where username = $1',[name])
+			// let counter_net = await db.oneOrNone('SELECT counter FROM GreetingNames where username = $1',[name])
 			await db.none('UPDATE GreetingNames SET counter = counter + 1 WHERE username = $1', [name])
 		}
 	}
