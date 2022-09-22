@@ -20,7 +20,7 @@ describe('The greeting app', function(){
     beforeEach(async function(){
         // clean the tables before each test run
          await db.none('Delete FROM GreetingNames')
-     })
+     });
 
     it('should be able to add all greeted users', async function(){
     	const dbFunction = DbFunction(db)
@@ -29,7 +29,7 @@ describe('The greeting app', function(){
 
     	assert.equal(true, await dbFunction.nameGreeted('mbali'))
     	assert.equal(false, await dbFunction.nameGreeted('kay'))
-})
+});
 
    it('should be able to add all greeted users', async function(){
     	const dbFunction = DbFunction(db)
@@ -38,7 +38,7 @@ describe('The greeting app', function(){
 
     	assert.equal(false, await dbFunction.nameGreeted('ayanda'))
     	assert.equal(false, await dbFunction.nameGreeted('kay'))
-})
+});
 
 it('should be able to check if the user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
@@ -50,19 +50,19 @@ it('should be able to check if the user has been greeted', async function(){
         console.log(names)
           	assert.equal(true, await dbFunction.nameGreeted('mbali'))
     	assert.equal(false, await dbFunction.nameGreeted('kay'))
-})
+});
 
 it('should be able to check how many times a user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
-    	await  dbFunction.greets('mbali')
-    	await  dbFunction.greets('mbali')
-    	await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
+    	// await  dbFunction.greets('mbali')
     	await  dbFunction.greets('khanya')
-        // await dbFunction.getUserCounter('khanya')
-        
+   let kay= await dbFunction.getUserCounter('khanya')
+        console.log(kay)
     	assert.equal(1, await dbFunction.getUserCounter('khanya'))
     	
-})
+});
 it('should be able to check how many times all user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
     	await  dbFunction.greets('mbali')
@@ -73,6 +73,6 @@ let counting= await dbFunction.getCounter()
 console.log(counting)
     	assert.equal(2, await dbFunction.getCounter())
     	// assert.equal(1, await dbFunction.getUserCounter('khanya'))
-})
+});
 
  })
