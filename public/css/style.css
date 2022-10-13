@@ -151,22 +151,8 @@ nav .nav-list li:not(:last-child) a:hover{
     transition: .4s;
 
 }
-nav .nav-list li.btn a{
-    display: inline-block;
-    background: transparent;
-    border: 2px solid #c41d11;
-    padding: 9px 28px;
-    border-radius:30px;
-    line-height: 1.3;
-    color: #c41d11;
-    font-weight: 500;
-}
-nav .nav-list li.btn:hover a{
-    background: #c41d11 ;
-    color: white;
-    border: 2px solid transparent;
-    transition: .4s;
-}
+
+
 @media screen and (max-width :1000px) {
     nav .hamb{
         display: initial;
@@ -218,14 +204,7 @@ nav .nav-list li.btn:hover a{
         margin-left: 0;
         margin-bottom: 40px; 
     }
-    nav .nav-list li.btn a{
-        position: absolute;
-        bottom: 0;
-        right: 20%;
-        left: 20%;
-        padding: 7px 15px;
-        font-size: 14px;
-    }
+   
     nav .nav-list.open{
         right: 0;
 
