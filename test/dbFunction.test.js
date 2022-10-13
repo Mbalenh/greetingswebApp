@@ -28,7 +28,7 @@ describe('The greeting app', function(){
     	await dbFunction.greets('khanya')
 
     	assert.equal(true, await dbFunction.nameGreeted('mbali'))
-    	assert.equal(false, await dbFunction.nameGreeted('kay'))
+    	assert.equal(true, await dbFunction.nameGreeted('khanya'))
 });
 
    it('should be able to add all greeted users', async function(){
@@ -49,14 +49,11 @@ it('should be able to check if the user has been greeted', async function(){
         let names=await dbFunction.nameGreeted('mbali') 
         console.log(names)
           	assert.equal(true, await dbFunction.nameGreeted('mbali'))
-    	assert.equal(false, await dbFunction.nameGreeted('kay'))
+    	   assert.equal(false, await dbFunction.nameGreeted('kay'))
 });
 
 it('should be able to check how many times a user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
-    	// await  dbFunction.greets('mbali')
-    	// await  dbFunction.greets('mbali')
-    	// await  dbFunction.greets('mbali')
     	await  dbFunction.greets('khanya')
    let kay= await dbFunction.getUserCounter('khanya')
         console.log(kay)
@@ -65,9 +62,7 @@ it('should be able to check how many times a user has been greeted', async funct
 });
 it('should be able to check how many times all user has been greeted', async function(){
     	const dbFunction = DbFunction(db)
-    	await  dbFunction.greets('mbali')
-    	// await  dbFunction.greets('mbali')
-    	// await  dbFunction.greets('mbali') 
+    	await  dbFunction.greets('mbali') 
     	await  dbFunction.greets('khanya')
 let counting= await dbFunction.getCounter()
 console.log(counting)

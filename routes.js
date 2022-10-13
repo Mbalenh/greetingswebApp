@@ -1,5 +1,5 @@
 const routes=dbFunction =>{
-  const greeting = Greeting();
+
 	const getIndex= async(req,res)=>{
 
  let name = greeting.username
@@ -15,20 +15,32 @@ let message= greeting.greet(name,language)
 }
 
 const greeted= async (req,res)=>{
+let username = req.body.fullname[0].toUpperCase()+fullname.slice(1).toLowerCase();
+let language = req.body.language
 
-   let error = greeting.errorMessage(req.body.fullname,req.body.language)
-    if (error) {
-       req.flash('info', error)
-    }else{
-      greeting.username = req.body.fullname[0].toUpperCase()+fullname.slice(1).toLowerCase();
-      greeting.language = req.body.language
-      // username= fullname[0].toUpperCase()+fullname.slice(1).toLowerCase();
-      await dbFunction.greets(greeting.username)
+ if(!username && !language){
+     req.flash("error","please select language and enter your username")
+     res.redirect("back")
     }
-res.redirect('/');
+     else if (!username ) {
 
+      req.flash("error", "please enter username")
+      res.redirect("back")
+    }
+   else if (!/^[a-zA-Z]+$/.test(username)) {
 
-}
+      req.flash("error", "invalid username")
+      res.redirect("back")
+    }
+    else if(!language) {
+      req.flash("error", "please select language")
+      res.redirect("back")
+    }else{
+       let username = req.body.fullname[0].toUpperCase()+fullname.slice(1).toLowerCase();
+          await dbFunction.greets(username)
+          res.redirect('/')
+    }
+  }
     const clearName=  async (req,res)=>{
     await dbFunction.clearNames()
   res.redirect('/');
