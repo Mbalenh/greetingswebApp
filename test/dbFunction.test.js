@@ -24,10 +24,10 @@ describe('The greeting app', function(){
 
     it('should be able to add all greeted users', async function(){
     	const dbFunction = DbFunction(db)
-    	await dbFunction.greets('mbali')
+    	await dbFunction.greets('zethu')
     	await dbFunction.greets('khanya')
 
-    	assert.equal(true, await dbFunction.nameGreeted('mbali'))
+    	assert.equal(false, await dbFunction.nameGreeted('mbali'))
     	assert.equal(true, await dbFunction.nameGreeted('khanya'))
 });
 
