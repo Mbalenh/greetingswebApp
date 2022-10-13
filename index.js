@@ -9,6 +9,7 @@ const dbFunction = require("./db/DbFunction")(db)
  
 const app = express()
 const greeting = Greeting();
+const routes= require("./routes")(dbFunction)
 // const dbFunction = DbFunction(db)
 
 
@@ -29,59 +30,65 @@ app.use(session({
 
 app.use(flash());
 
-app.get('/', async function (req, res) {
- let name = greeting.username
- let language = greeting.language
-let message= greeting.greet(name,language)
+app.get('/', routes.getIndex)
+// app.get('/', async function (req, res) {
+//  let name = greeting.username
+//  let language = greeting.language
+// let message= greeting.greet(name,language)
 
-  greeting.username =""
-  greeting.language=""
-    res.render('index' ,{
-    message: message,
-      count: await dbFunction.getCounter(),
+//   greeting.username =""
+//   greeting.language=""
+//     res.render('index' ,{
+//     message: message,
+//       count: await dbFunction.getCounter()
     
-    });  
-});
+//     });  
+// });
 
 
-
-app.post('/greeted', async function(req, res){
-    let error = greeting.errorMessage(req.body.fullname,req.body.language)
-    if (error) {
-       req.flash('info', error)
-    }else{
-      greeting.username = req.body.fullname
-      greeting.language = req.body.language
-      await dbFunction.greets(greeting.username)
-    }
+app.post('/greeted', routes.greeted)
+// app.post('/greeted', async function(req, res){
+//     let error = greeting.errorMessage(req.body.fullname,req.body.language)
+//     if (error) {
+//        req.flash('info', error)
+//     }else{
+//       greeting.username = req.body.fullname
+//       greeting.language = req.body.language
+//       username= fullname[0].toUpperCase()+fullname.slice(1).toLowerCase();
+//       await dbFunction.greets(greeting.username)
+//     }
  
 
-res.redirect('/');
-});
-app.post('/clear', async function(req, res){
+// res.redirect('/');
+// });
 
-  await dbFunction.clearNames()
-  res.redirect('/');
+app.post('/clear' , routes.clearName)
+// app.post('/clear', async function(req, res){
 
-})
+//   await dbFunction.clearNames()
+//   res.redirect('/');
 
+// })
 
-app.get('/greeted' ,async function(req,res){
-  let names= await dbFunction.getNames()
+app.get('/greeted' ,routes.getName)
+// app.get('/greeted' ,async function(req,res){
+//   let names= await dbFunction.getNames()
   
-   console.log(names)
-res.render('greeted',{
-  names
-})
-})
+//    console.log(names)
+// res.render('greeted',{
+//   names
+// })
+// })
 
-app.get('/counter/:username',async function(req, res){
-  let user = req.params.username;
-  let counter= await dbFunction.getUserCounter(user)
-// await dbFunction.getCounter(user)
-  res.render('counter',{user, counter})
+app.get('/counter/:username',routes.getUserCounters)
+
+// app.get('/counter/:username',async function(req, res){
+//   let user = req.params.username;
+//   let counter= await dbFunction.getUserCounter(user)
+// // await dbFunction.getCounter(user)
+//   res.render('counter',{user, counter})
   
-  });
+//   });
 
 
 const PORT = process.env.PORT || 3011;
