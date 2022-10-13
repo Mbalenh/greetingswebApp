@@ -9,7 +9,7 @@ const dbFunction = require("./db/DbFunction")(db)
  
 const app = express()
 const greeting = Greeting();
-const routes= require("./routes")(dbFunction)
+const routes= require("./routes")(dbFunction,greeting)
 // const dbFunction = DbFunction(db)
 
 
