@@ -3,4 +3,4 @@ setTimeout(function(){
 	document.querySelector("display").innerHTML=""
 
 },
-3000);
+20000);
