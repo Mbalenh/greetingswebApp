@@ -17,9 +17,10 @@ const db = pgp(config)
 
 describe('The greeting app', function(){
 
-    beforeEach(async function(){
+    beforeEach(async function(done){
         // clean the tables before each test run
          await db.none('Delete FROM GreetingNames')
+         setTimeout(done, 10000)
      });
 
     it('should be able to add all greeted users', async function(){
@@ -70,6 +71,14 @@ console.log(counting)
     	assert.equal(2, await dbFunction.getCounter())
     	// assert.equal(1, await dbFunction.getUserCounter('khanya'))
 });
+
+// it('resolves', (done) => {
+//             fooAsyncPromise(arg1, arg2).then((res, body) => {
+//                 expect(res.statusCode).equal(incorrectValue);
+//                 done();
+//             }).catch(done);
+//          });
+
     after(function(){
     db.$pool.end
 });
