@@ -27,7 +27,7 @@ describe('The greeting app', function(){
         const dbFunction = DbFunction(db)
         await dbFunction.greets('zethu')
         await dbFunction.greets('linda')
-s
+
         assert.equal(false, await dbFunction.nameGreeted('mbali'))
         assert.equal(false, await dbFunction.nameGreeted('khanya'))
 });
