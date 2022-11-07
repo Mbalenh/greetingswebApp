@@ -1,6 +1,6 @@
 const pgp = require('pg-promise')();
 
-const DATABASE_URL= process.env.DATABASE_URL ||'postgres://dcizjcmy:p8wTJ3o5rpKJi2r12VBO0obH1DAyjPi5@surus.db.elephantsql.com/dcizjcmy'
+const DATABASE_URL= process.env.DATABASE_URL ||'postgresql://code:code123@localhost:5432/my_greetings'
 
 const config = { 
   connectionString : DATABASE_URL
