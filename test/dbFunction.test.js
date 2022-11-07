@@ -50,7 +50,7 @@ it('should be able to check if the user has been greeted', async function(){
     
 
         let names=await dbFunction.nameGreeted('mbali') 
-        console.log(names)
+       
             assert.equal(true, await dbFunction.nameGreeted('mbali'))
            assert.equal(false, await dbFunction.nameGreeted('kay'))
 });
@@ -60,8 +60,7 @@ it('should be able to check how many times a user has been greeted', async funct
         const dbFunction = DbFunction(db)
         await  dbFunction.greets('sbo')
         let kay= await dbFunction.getUserCounter('sbo')
-        console.log(kay+"userCounter")
-      
+        
         assert.equal(1,await dbFunction.getUserCounter('sbo'))
         
 });
@@ -71,19 +70,12 @@ it('should be able to check how many times all user has been greeted', async fun
         await  dbFunction.greets('mxo') 
         await  dbFunction.greets('kay')
         let counting= await dbFunction.getCounter()
-        console.log(counting)
+        
         assert.equal(2, await dbFunction.getCounter())
-        // assert.equal(1, await dbFunction.getUserCounter('khanya'))
+    
 });
 
-// it('resolves', (done) => {
-//             fooAsyncPromise(arg1, arg2).then((res, body) => {
-//                 expect(res.statusCode).equal(incorrectValue);
-//                 done();
-//             }).catch(done);
-//          });
-
-    after(function(){
+ after(function(){
     db.$pool.end()
 });
  });
